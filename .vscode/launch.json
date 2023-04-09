@@ -1,0 +1,71 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "home",//ตั้งชื่ออะไรก็ได้
+            "request": "launch", 
+            "type": "dart",
+            "program": "lib/home.dart"//ที่อยุ่ไฟล์
+        },
+        {
+            "name": "login",//Main
+            "request": "launch" ,
+            "type": "dart",
+        },
+        {
+            "name": "เลือกโครงการที่สนใจ",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/chooseProject.dart"//ที่อยุ่ไฟล์
+        },
+        {
+            "name": "setting",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/setting.dart"
+        },
+        {
+            "name": "รายละเอียดผู้ให้(รับมอบสำเร็จ)",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/giverdetail2.dart"
+        },
+        {
+            "name": "รายละเอียดผู้ให้",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/giverdetail1.dart"
+        },
+        {
+            "name": "รายละเอียดโครงการ",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/projectread.dart"
+        },
+        {
+            "name": "ประวัติการบริจาค",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/historyGiver.dart"
+        },
+        {
+            "name": "admin",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/admin.dart"
+        },
+        {
+            "name": "ตำแหน่งผู้รับ",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/roadGiver.dart"
+        },
+        {
+            "name": "สถานที่ส่งมอบ",
+            "request": "launch" ,
+            "type": "dart",
+            "program": "lib/address.dart"
+        },
+    ],
+    "compounds": []
+}
