@@ -4,6 +4,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertestapp/choose_project.dart';
+import 'package:fluttertestapp/historyGiver.dart';
+import 'package:fluttertestapp/setting.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,15 +55,26 @@ class MyHome extends StatelessWidget {
                             )));
                   })),
               ListTile(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) {
+                  return const History(title: 'Project');
+                }))),
                 leading: Icon(Icons.list),
                 title:
                     Text("ประวัติการบริจาค", style: TextStyle(fontSize: 20.0)),
               ),
               ListTile(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) {
+                  return const Setting();
+                }))),
                 leading: Icon(Icons.settings),
                 title: Text("Setting", style: TextStyle(fontSize: 20.0)),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
                 leading: Icon(Icons.logout),
                 title: Text("Log-Out", style: TextStyle(fontSize: 20.0)),
               )

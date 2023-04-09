@@ -426,10 +426,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: true,
+        // resizeToAvoidBottomInset: true,
         backgroundColor: const Color.fromRGBO(40, 38, 56, 1),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Center(
               child: Container(
@@ -846,12 +846,8 @@ class _SignupPageContent extends State<SignupPageContent> {
               ),
               // color: Colors.pink,
               child: Text("CREATE", style: TextStyle(color: Colors.white)),
-
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => (LoginScreen())),
-                );
+                Navigator.of(context).popUntil((route) => route.isFirst);
               },
               // onPressed: () async {
               //   if (kDebugMode) {

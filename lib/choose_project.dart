@@ -55,10 +55,10 @@ class _ChooseProject extends State<ChhoseProject> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => (MyHome())),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => (const MyHome())),
+              );
             },
             icon: const Icon(Icons.chevron_left),
             color: Colors.black,
