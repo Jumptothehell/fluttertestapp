@@ -63,7 +63,8 @@ flutter:
     - asset/img/Logo.png 
     - asset/img/example.jpg 
     - asset/img/map.png 
-    - asset/img/map2.jpg 
+    - asset/img/map2.jpg
+    - assets/img/Logo.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

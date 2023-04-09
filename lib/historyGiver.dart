@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertestapp/choose_project.dart';
+import 'package:fluttertestapp/home.dart';
 import 'dart:developer' as developer;
 import 'package:fluttertestapp/roadGiver.dart';
 
@@ -53,8 +54,7 @@ class _HistoryState extends State<History> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => (ChhoseProject(title: ''))),
+                MaterialPageRoute(builder: (context) => (const MyHome())),
               );
             },
             icon: const Icon(Icons.chevron_left),

@@ -3,6 +3,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertestapp/config/palette.dart';
 // import 'authentication.dart';
 //import 'package:flutter/services.dart';
 //import 'package:fluttertestapp/admin.dart';
@@ -24,24 +25,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // title: 'Login Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        // fontFamily: 'SanFrancisco',
+        primarySwatch: Palette.kToDark,
+        scaffoldBackgroundColor: const Color(0xff8FE1A1),
       ),
       home: Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: const Color.fromRGBO(55, 191, 167, 1),
         body: LoginScreen(),
-        // bottomNavigationBar: BottomAppBar(
-        //     color: Colors.transparent,
-        //     elevation: 0,
-        //     child: Container(
-        //       padding: EdgeInsets.all(20),
-        //       child: Text(P
-        //         "Company name, Inc",
-        //         style: TextStyle(color: Colors.white),
-        //         textAlign: TextAlign.center,
-        //       ),
-        //     )),
       ),
     );
   }

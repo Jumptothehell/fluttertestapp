@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertestapp/choose_project.dart';
 import 'package:fluttertestapp/historyGiver.dart';
 import 'package:fluttertestapp/setting.dart';
+import 'package:fluttertestapp/widget/yourproject.dart';
 
 void main() {
   runApp(const MyApp());
@@ -117,7 +118,7 @@ class MyHome extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => (ChhoseProject(
+                            builder: (context) => (ChooseProject(
                                   title: '',
                                 ))),
                       );
@@ -146,7 +147,12 @@ class MyHome extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(50.0, 20.0, 50.0, 8.0),
                 constraints: BoxConstraints(maxWidth: 350, maxHeight: 550),
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) {
+                        return const YourProject();
+                      })));
+                    },
                     child: const Text('ผู้รับ',
                         style: TextStyle(color: Colors.black, fontSize: 30.0)),
                     style: ButtonStyle(

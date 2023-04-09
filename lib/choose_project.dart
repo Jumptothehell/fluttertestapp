@@ -25,21 +25,21 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xff8FE1A1),
       ),
-      home: const ChhoseProject(title: 'Project'),
+      home: const ChooseProject(title: 'Project'),
     );
   }
 }
 
-class ChhoseProject extends StatefulWidget {
-  const ChhoseProject({super.key, required this.title});
+class ChooseProject extends StatefulWidget {
+  const ChooseProject({super.key, required this.title});
 
   final String title;
 
   @override
-  State<ChhoseProject> createState() => _ChooseProject();
+  State<ChooseProject> createState() => _ChooseProject();
 }
 
-class _ChooseProject extends State<ChhoseProject> {
+class _ChooseProject extends State<ChooseProject> {
   //int _counter = 0;
 
   // void _incrementCounter() {
