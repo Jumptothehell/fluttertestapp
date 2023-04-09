@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertestapp/historyGiver.dart';
 import 'dart:core';
+
+import 'package:fluttertestapp/projectread.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -39,9 +42,9 @@ class _GiverAdmissionDetailState extends State<GiverAdmissionDetail> {
         backgroundColor: const Color(0xff37bfa7),
         leading: IconButton(
           onPressed: () {
-            // Navigator.push(context, MaterialPageRoute(builder: ((context) {
-            //   return ;
-            // })));
+            Navigator.push(context, MaterialPageRoute(builder: ((context) {
+              return const Projectread(title: "");
+            })));
           },
           icon: const Icon(
             Icons.chevron_left,
@@ -262,7 +265,13 @@ class _GiverAdmissionDetailState extends State<GiverAdmissionDetail> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xff37bfa7)),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) =>
+                                        const History(title: ''))));
+                          },
                           child: const Text(
                             "ตกลง",
                             style: TextStyle(

@@ -54,7 +54,10 @@ class _HistoryState extends State<History> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => (const MyHome())),
+                MaterialPageRoute(
+                    builder: (context) => (const ChooseProject(
+                          title: "",
+                        ))),
               );
             },
             icon: const Icon(Icons.chevron_left),

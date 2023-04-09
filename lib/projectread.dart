@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:developer' as developer;
 
+import 'package:fluttertestapp/widget/giveradmissiondetail.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -383,7 +385,11 @@ class _ProjectreadState extends State<Projectread> {
                   width: 180,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const GiverAdmissionDetail()));
                     },
                     child: Text(
                       "ตกลง",

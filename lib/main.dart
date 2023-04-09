@@ -60,78 +60,65 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        reverse: true,
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              height: 500,
-              width: 200,
-            ),
-            //โลโก้ LogoBrand
-            Container(
-              margin: const EdgeInsets.only(top: 6.0),
-              child: Image.asset(
-                'asset/img/Logo.png',
-                fit: BoxFit.contain,
-                scale: 3,
-              ),
-            ),
-
-            Container(
-              margin: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50)),
-                child: Container(
-                  height: 100,
-                  width: 360,
-                  color: Color.fromRGBO(143, 225, 161, 1),
-                  //ข้างในตัวครอบ คำว่า Login
-                  alignment: Alignment.center,
-                  child: Text(
-                    "LOG-IN",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 34,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    // textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              color: Color.fromRGBO(143, 225, 161, 1),
-              margin: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
-              height: 30,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+          Widget>[
+        //โลโก้ LogoBrand
+        SizedBox(
+          height: 100,
+        ),
+        Container(
+          alignment: Alignment.topCenter,
+          child: Image.asset(
+            'asset/img/Logo.png',
+            fit: BoxFit.contain,
+            scale: 3,
+          ),
+        ),
+        Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(50), topRight: Radius.circular(50)),
+            child: Container(
+              height: 100,
               width: 360,
-            ),
-            Container(
               color: Color.fromRGBO(143, 225, 161, 1),
-              margin: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
-              height: 250,
-              width: 360, //ปรับความสูงกว้างของทั้งปุ่มทั้ง container
-              constraints: BoxConstraints(
-                  maxWidth: 360,
-                  maxHeight: 140), //ปรับความสูงกว้างของทั้งปุ่มทั้ง container
-              child: Container(
-                margin:
-                    EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0), //ปรับขนาดปุ่ม
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    color: Colors.white),
-                child: Column(
-                  children: <Widget>[
-                    TextFormField(
+              //ข้างในตัวครอบ คำว่า Login
+              alignment: Alignment.center,
+              child: Text(
+                "LOG-IN",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                ),
+                // textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            color: Color.fromRGBO(143, 225, 161, 1), height: 250,
+            width: 360, //ปรับความสูงกว้างของทั้งปุ่มทั้ง container
+            constraints: BoxConstraints(
+                maxWidth: 360,
+                maxHeight: 140), //ปรับความสูงกว้างของทั้งปุ่มทั้ง container
+            child: Container(
+              margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0), //ปรับขนาดปุ่ม
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  color: Colors.white),
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    child: TextFormField(
                       onTap: () {
                         setState(() {
                           _isVisible = false;
                         });
                       },
-                      controller: usernameController, // Controller for Username
+                      controller:
+                          usernameController, // Controller for Username,
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Username",
@@ -150,10 +137,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       onEditingComplete: () =>
                           FocusScope.of(context).nextFocus(),
                     ),
-                    Divider(
-                      thickness: 3,
-                    ),
-                    TextFormField(
+                  ),
+                  Divider(
+                    thickness: 3,
+                  ),
+                  SingleChildScrollView(
+                    child: TextFormField(
                       onTap: () {
                         setState(() {
                           _isVisible = false;
@@ -200,208 +189,78 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       obscureText: _isObscure,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            Container(
+          ),
+        ),
+        Center(
+          child: Container(
               color: Color.fromRGBO(143, 225, 161, 1),
-              margin: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
               height: 50,
               width: 360,
-              constraints: BoxConstraints(maxWidth: 360, maxHeight: 550),
               child: Center(
-                child: RichText(
-                  text: TextSpan(
-                      text: "Create new account",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SignupPage()),
-                              )
-                            }),
-                ),
-
-                // Wrong Password text
-                // Visibility(
-                //   visible: _isVisible,
-                //   maintainSize: true,
-                //   maintainAnimation: true,
-                //   maintainState: true,
-                //   child: Container(
-                //     alignment: Alignment.centerLeft,
-                //     padding: EdgeInsets.all(10),
-                //     child: Text(
-                //       "Wrong credentials entered",
-                //       style: TextStyle(
-                //         color: Colors.red,
-                //         fontSize: 10,
-                //       ),
-                //     ),
-                //   ),
-                // ),
-
-                // Textfields for username and password fields
-
-                // text: " Create new account",
-                // style: TextStyle(
-                //     color: Colors.blue, fontWeight: FontWeight.bold),
-                // recognizer: new TapGestureRecognizer()
-                //   .onTap = () => {
-                //         Navigator.push(
-                //           context,
-                //           MaterialPageRoute(
-                //               builder: (context) => SignupPage()),
-                //         )
-                //       }),
-                //     child: RichText(
-                //   text: TextSpan(
-                //     text: "Dont have an account? ",
-                //     style: TextStyle(
-                //       color: Colors.white,
-                //       fontSize: 15,
-                //     ),
-                //     children: [
-                //       TextSpan(
-                //           text: " Create new account",
-                //           style: TextStyle(
-                //               color: Colors.blue, fontWeight: FontWeight.bold),
-                //           recognizer: new TapGestureRecognizer()
-                //             ..onTap = () => {
-                //                   Navigator.push(
-                //                     context,
-                //                     MaterialPageRoute(
-                //                         builder: (context) => SignupPage()),
-                //                   )
-                //                 }),
-                //     ],
-                //   ),
-                //)
-              ),
-
-              // Wrong Password text
-              // Visibility(
-              //   visible: _isVisible,
-              //   maintainSize: true,
-              //   maintainAnimation: true,
-              //   maintainState: true,
-              //   child: Container(
-              //     alignment: Alignment.centerLeft,
-              //     padding: EdgeInsets.all(10),
-              //     child: Text(
-              //       "Wrong credentials entered",
-              //       style: TextStyle(
-              //         color: Colors.red,
-              //         fontSize: 10,
-              //       ),
-              //     ),
-              //   ),
-              // ),
-
-              // Textfields for username and password fields
-
-              // text: " Create new account",
-              // style: TextStyle(
-              //     color: Colors.blue, fontWeight: FontWeight.bold),
-              // recognizer: new TapGestureRecognizer()
-              //   .onTap = () => {
-              //         Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //               builder: (context) => SignupPage()),
-              //         )
-              //       }),
-              //     child: RichText(
-              //   text: TextSpan(
-              //     text: "Dont have an account? ",
-              //     style: TextStyle(
-              //       color: Colors.white,
-              //       fontSize: 15,
-              //     ),
-              //     children: [
-              //       TextSpan(
-              //           text: " Create new account",
-              //           style: TextStyle(
-              //               color: Colors.blue, fontWeight: FontWeight.bold),
-              //           recognizer: new TapGestureRecognizer()
-              //             ..onTap = () => {
-              //                   Navigator.push(
-              //                     context,
-              //                     MaterialPageRoute(
-              //                         builder: (context) => SignupPage()),
-              //                   )
-              //                 }),
-              //     ],
-              //   ),
-              //)
-            ),
-            Container(
-              color: Color.fromRGBO(143, 225, 161, 1),
-              margin: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
+                  child: RichText(
+                text: TextSpan(
+                    text: "Create new account",
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignupPage()),
+                            )
+                          }),
+              ))),
+        ),
+        Center(
+          child: Container(
+            color: Color.fromRGBO(143, 225, 161, 1),
+            height: 70,
+            width: 360,
+            constraints: BoxConstraints(maxWidth: 360, maxHeight: 550),
+            child: Container(
+              margin: EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
+              width: 90,
               height: 70,
+              padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromRGBO(242, 92, 5, 1),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                ),
+                child: Text("LOG-IN", style: TextStyle(color: Colors.white)),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => (MyHome())),
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
+        Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(50),
+                bottomRight: Radius.circular(50)),
+            child: Container(
+              height: 30,
               width: 360,
-              constraints: BoxConstraints(maxWidth: 360, maxHeight: 550),
-              child: Container(
-                margin: EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
-                width: 90,
-                height: 70,
-                // padding: EdgeInsets.only(top: 20),
-                padding: EdgeInsets.fromLTRB(10, 10, 10, 5),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromRGBO(242, 92, 5, 1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                  ),
-                  // color: Colors.pink,
-                  child: Text("LOG-IN", style: TextStyle(color: Colors.white)),
-
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => (MyHome())),
-                    );
-                  },
-
-                  // onPressed: () {
-                  //   if (auth.fetchCredentials(
-                  //       usernameController.text, passwordController.text)) {
-                  //     Navigator.pushAndRemoveUntil(
-                  //       context,
-                  //       MaterialPageRoute(builder: (context) => HomePage()),
-                  //       (Route<dynamic> route) => false,
-                  //     );
-                  //   } else {
-                  //     setState(() {
-                  //       _isVisible = true;
-                  //     });
-                  //   }
-                  // }
-                ),
-              ),
+              color: Color.fromRGBO(143, 225, 161, 1),
+              alignment: Alignment.center,
             ),
-            Container(
-              margin: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 100.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(50),
-                    bottomRight: Radius.circular(50)),
-                child: Container(
-                  height: 60,
-                  width: 360,
-                  color: Color.fromRGBO(143, 225, 161, 1),
-                  alignment: Alignment.center,
-                ),
-              ),
-            ),
-          ],
-        ));
+          ),
+        ),
+      ]),
+    );
   }
 }
 
@@ -582,6 +441,7 @@ class _SignupPageContent extends State<SignupPageContent> {
             child: Column(
               children: <Widget>[
                 TextFormField(
+                  maxLines: null,
                   onTap: () {
                     setState(() {
                       _isVisible = false;
@@ -730,7 +590,10 @@ class _SignupPageContent extends State<SignupPageContent> {
                     //ใส่คำที่อยู่ในปุ่มว่าเป็นฝ่ายไหน
                     // textAlign: TextAlign.center,
                     // hint: Text('เลือกสถานะ',Padding: EdgeInsets.all(20) ),
-                    hint: Text('เลือกสถานะ'),
+                    hint: Padding(
+                      padding: EdgeInsets.only(left: 30),
+                      child: Text('เลือกสถานะ'),
+                    ),
 
                     //           hint: Text(
                     //   widget.hint,
@@ -741,14 +604,22 @@ class _SignupPageContent extends State<SignupPageContent> {
                       //add items in the dropdown
 
                       DropdownMenuItem(
-                        child: Text("ผู้ให้"),
                         value: "ผู้ให้",
+                        child: Center(
+                          child: Text("ผู้ให้"),
+                        ),
                       ),
-                      DropdownMenuItem(child: Text("ผู้รับ"), value: "ผู้รับ"),
                       DropdownMenuItem(
-                        child: Text("ผู้ให้และผู้รับ"),
-                        value: "ผู้ให้และผู้รับ",
-                      )
+                        value: "ผู้รับ",
+                        child: Center(
+                          child: Text("ผู้รับ"),
+                        ),
+                      ),
+                      DropdownMenuItem(
+                          value: "ผู้ให้และผู้รับ",
+                          child: Center(
+                            child: Text("ผู้ให้และผู้รับ"),
+                          ))
                     ],
                     onChanged: (value) {
                       //get value when changed
